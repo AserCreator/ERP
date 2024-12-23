@@ -1,24 +1,38 @@
+# - type: entity
+#   parent: ClothingBackpack
+#   id: Nes14ClothingBackpackRescuerTelecomms
+#   name: рюкзак эксплоратора
+#   description: Рюкзак эксплоратора. Пожертвовав его вместимостью, удалось вместить небольшой радио-передатчик.
+#   components:
+#     - type: Sprite
+#       sprite: NES/Clothing/Back/rescuer.rsi
+#     - type: TelecomServer
+#     - type: ContainerContainer
+#       containers:
+#         key_slots: !type:Container
+#     - type: ContainerFill
+#       containers:
+#         key_slots:
+#         - EncryptionKeyCommon
+#     - type: EncryptionKeyHolder
+#       keysExtractionMethod: Prying
+#       keySlots: 1
+#     - type: Storage
+#       grid:
+#       - 0,1,1,3
+#       - 3,0,6,3
+
 - type: entity
   parent: ClothingBackpack
-  id: Nes14ClothingBackpackRescuerTelecomms
-  name: рюкзак эксплоратора
-  description: Рюкзак эксплоратора. Пожертвовав его вместимостью, удалось вместить небольшой радио-передатчик.
+  id: Nes14ClothingBackpackDroidT1
+  name: хранилище дроида
+  description: Хранилище, портированое в дроида для переноски предметов.
   components:
     - type: Sprite
-      sprite: NES/Clothing/Back/rescuer.rsi
-    - type: TelecomServer
-    - type: ContainerContainer
-      containers:
-        key_slots: !type:Container
-    - type: ContainerFill
-      containers:
-        key_slots:
-        - EncryptionKeyCommon
-    - type: EncryptionKeyHolder
-      keysExtractionMethod: Prying
-      keySlots: 1
-    - type: Storage
-      grid:
-      - 0,1,1,3
-      - 3,0,6,3
- #ClothingBackpackSatchel
+      sprite: NES/DEBUG.rsi
+      state: icon
+    - type: Unremoveable
+      deleteOnDrop: false
+    # - type: Storage
+    #   grid:
+    #   - 0,1,1,3

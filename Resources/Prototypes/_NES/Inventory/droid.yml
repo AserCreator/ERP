@@ -1,5 +1,5 @@
 - type: inventoryTemplate
-  id: combat_droid
+  id: droid
   slots:
     - name: head
       slotTexture: head
@@ -7,15 +7,12 @@
       uiWindowPos: 1,0
       strippingWindowPos: 1,0
       displayName: Head
-    - name: template
-      slotTexture: template
-      slotFlags: POCKET
+      offset: 0.02, 0
+    - name: back
+      slotTexture: back
+      fullTextureName: template_small
+      slotFlags: BACK
+      slotGroup: SecondHotbar
       uiWindowPos: 2,0
-      strippingWindowPos: 2,1
-      displayName: template
-    - name: template2
-      slotTexture: template
-      slotFlags: POCKET
-      uiWindowPos: 3,0
-      strippingWindowPos: 2,1
-      displayName: template
+      strippingWindowPos: 2,0
+      displayName: Back

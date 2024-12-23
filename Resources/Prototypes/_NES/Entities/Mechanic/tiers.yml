@@ -1,0 +1,130 @@
+- type: entity
+  id: Nes14DroidT1
+  parent: Nes14DroidBase
+  name: Дроид Т1
+  description: Первое поколение помощников станции.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 6
+  - type: Sprite
+    sprite: NES/Mobs/Bots/chassis.rsi
+    scale: 1.1, 1.1
+    layers:
+    - state: robot_alt
+    - state: old_robot_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: old_robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 2
+    hasMindState: old_robot_e
+    noMindState: old_robot_e_r
+  - type: Inventory
+    templateId: droid
+  - type: Construction
+    node: cyborg
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+  - type: Loadout
+    prototypes:
+    - T1DroidGear
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+      params:
+        variation: 0.07
+        volume: -10
+
+- type: startingGear
+  id: T1DroidGear
+  equipment:
+    back: Nes14ClothingBackpackDroidT1
+
+- type: entity
+  id: Nes14DroidT2
+  parent: Nes14DroidT1
+  name: Дроид Т2
+  description: Второе поколение помощников станции.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
+  - type: Sprite
+    sprite: NES/Mobs/Bots/chassis.rsi
+    layers:
+    - state: medical
+    - state: medical_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: medical_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: medical_e
+    noMindState: medical_e_r
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 4.5
+
+- type: entity
+  id: Nes14DroidT3
+  parent: Nes14DroidT2
+  name: Дроид Т3
+  description: Третье поколение помощников станции.
+  components:
+  - type: Sprite
+    sprite: NES/Mobs/Bots/chassis.rsi
+    layers:
+    - state: robot
+    - state: robot_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: robot_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: robot_e
+    noMindState: robot_e_r
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 4.5
+
+- type: entity
+  id: Nes14DroidT4
+  parent: Nes14DroidT3
+  name: Дроид Т4
+  description: Само превосходство машины над плотью.
+  components:
+  - type: Sprite
+    sprite: NES/Mobs/Bots/chassis.rsi
+    scale: 1, 1
+    layers:
+    - state: human
+    - state: human_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+      visible: false
+    - state: human_l
+      shader: unshaded
+      map: ["light"]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: human_e
+    noMindState: human_e_r
+  - type: Inventory
+    templateId: human

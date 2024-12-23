@@ -54,6 +54,7 @@
       path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
       params:
         variation: 0.07
+        volume: -14
   - type: Speech
     speechVerb: Robotic
   - type: Construction

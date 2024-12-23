@@ -12,6 +12,10 @@
       "directions": 4
     },
     {
+      "name": "robot_alt",
+      "directions": 4
+    },
+    {
       "name": "robot_e",
       "directions": 4
     },
@@ -69,6 +73,22 @@
       },
       {
         "name": "medical_l",
+        "directions": 4
+      },
+      {
+        "name": "human",
+        "directions": 4
+      },
+      {
+        "name": "human_e",
+        "directions": 4
+      },
+      {
+        "name": "human_e_r",
+        "directions": 4
+      },
+      {
+        "name": "human_l",
         "directions": 4
       }
   ]
