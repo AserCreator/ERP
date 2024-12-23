@@ -1,0 +1,180 @@
+- type: entity
+  id: Nes14BasePod
+  save: false
+  abstract: true
+  components:
+  - type: MobMover
+  - type: Mech
+  - type: MechAir
+  - type: AirFilter
+    # everything except oxygen and nitrogen
+    gases:
+    - CarbonDioxide
+    - Plasma
+    - Tritium
+    - WaterVapor
+    - Ammonia
+    - NitrousOxide
+    - Frezon
+    overflowGases:
+    - Nitrogen
+    - CarbonDioxide
+    - Plasma
+    - Tritium
+    - WaterVapor
+    - Ammonia
+    - NitrousOxide
+    - Frezon
+  - type: AirIntake
+  # for intake and filter to work
+  - type: AtmosDevice
+    requireAnchored: false
+    joinSystem: true
+  - type: DoAfter
+  - type: Repairable
+    doAfterDelay: 2
+    damage:
+      types:
+        Blunt: -15
+        Slash: -15
+        Piercing: -15
+  - type: UserInterface
+    interfaces:
+      enum.MechUiKey.Key:
+        type: MechBoundUserInterface
+  - type: Puller
+    needsHands: false
+  - type: InputMover
+  - type: InteractionOutline
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 2
+    friction: 2
+    weightlessFriction: 5
+    weightlessAcceleration: 3
+    weightlessModifier: 1.5
+  - type: MovementAlwaysTouching
+  - type: Pullable
+  - type: Clickable
+  - type: WiresPanel
+  - type: Physics
+    bodyType: Dynamic
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+  - type: MobThresholds
+    currentThresholdState : Alive
+    thresholds:
+      0: Alive
+      300: Critical
+    showOverlays: false
+    allowRevives: true
+  - type: HealthExaminable
+    examinableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+    locPrefix: mech
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      mech-pilot-slot: !type:ContainerSlot
+      mech-equipment-container: !type:Container
+      mech-battery-slot: !type:ContainerSlot
+  - type: Damageable
+  - type: GuideHelp
+    guides:
+    - Robotics
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 900
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: StatusIcon
+    bounds: "-0.6,-0.6, 0.6, 0.6"
+  - type: PointLight
+    enabled: true
+    color: "#70d2db"
+    radius: 1.5
+    netsync: false
+
+- type: entity
+  id: Nes14Pod
+  parent: Nes14BasePod
+  name: ПОД
+  description: ПОД. Орбитальное средство для передвижения, как аналог скафандру при работе в космосе.
+  suffix: Filled
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: NES/Objects/Misc/mecha.rsi
+    scale: 1.3, 1.3
+    layers:
+    - state: pod
+      map: ["enum.MechVisualLayers.Base", "movement"]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 1000
+        mask:
+          - FlyingMobMask
+        layer:
+          - FlyingMobLayer
+  - type: AmbientSound
+    range: 4
+    volume: -8
+    sound:
+      path: /Audio/Effects/shuttle_thruster.ogg
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: pod-moving
+    noMovementLayers:
+      movement:
+        state: pod
+  - type: Mech
+    baseState: pod
+    openState: pod-open
+    brokenState: pod-broken
+    mechToPilotDamageMultiplier: 0
+    maxEquipmentAmount: 2
+    airtight: true
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+    equipmentWhitelist:
+      tags:
+      - CombatMech
+    startingEquipment:
+      - WeaponMechCombatSolarisLaser
+  - type: Reflect
+    reflectProb: 0.2
+    spread: 180
+    soundOnReflect: /Audio/Weapons/block_metal1.ogg
+    reflects:
+    - NonEnergy
+  - type: MobThresholds
+    currentThresholdState: Alive
+    thresholds:
+      0: Alive
+      450: Critical
+    showOverlays: false
+    allowRevives: true
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCageMedium
