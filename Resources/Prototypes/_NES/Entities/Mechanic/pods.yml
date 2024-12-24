@@ -47,12 +47,12 @@
   - type: InputMover
   - type: InteractionOutline
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1
-    baseSprintSpeed: 2
+    baseWalkSpeed: 2
+    baseSprintSpeed: 1
     friction: 2
     weightlessFriction: 5
     weightlessAcceleration: 3
-    weightlessModifier: 1.5
+    weightlessModifier: 2
   - type: MovementAlwaysTouching
   - type: Pullable
   - type: Clickable
@@ -110,6 +110,24 @@
     netsync: false
 
 - type: entity
+  id: Nes14PodCentralElectronics
+  parent: BaseElectronics
+  name: центральный модуль управления ПОДа
+  description: Плата для пульта управления ПОДа.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: mainboard
+    - type: Tag
+      tags:
+      - Nes14PodCentralElectronics
+    - type: GuideHelp
+      guides:
+      - Robotics
+
+- type: entity
   id: Nes14Pod
   parent: Nes14BasePod
   name: ПОД
@@ -118,7 +136,7 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: NES/Objects/Misc/mecha.rsi
+    sprite: NES/Objects/Misc/pods.rsi
     scale: 1.3, 1.3
     layers:
     - state: pod
@@ -159,8 +177,7 @@
     equipmentWhitelist:
       tags:
       - CombatMech
-    startingEquipment:
-      - WeaponMechCombatSolarisLaser
+      - IndustrialMech
   - type: Reflect
     reflectProb: 0.2
     spread: 180
@@ -174,7 +191,3 @@
       450: Critical
     showOverlays: false
     allowRevives: true
-  - type: ContainerFill
-    containers:
-      mech-battery-slot:
-      - PowerCageMedium

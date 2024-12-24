@@ -1,0 +1,94 @@
+- type: constructionGraph
+  id: Nes14Pod
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: Nes14Pod
+      steps:
+      - tool: Anchoring
+        doAfter: 3
+      
+      - material: Cable
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.MechAssemblyVisuals.State"
+          data: 1
+
+      - tool: Screwing
+        doAfter: 3
+
+      - tool: Cutting
+        doAfter: 3
+
+      - tag: Nes14PodCentralElectronics
+        name: pod central control module
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "mainboard"
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.MechAssemblyVisuals.State"
+          data: 2
+
+      - tool: Screwing
+        doAfter: 3
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.MechAssemblyVisuals.State"
+          data: 3
+      
+      - tag: MechAirTank
+        name: exosuit air tank
+        icon:
+          sprite: Objects/Specific/Mech/mecha_equipment.rsi
+          state: mecha_air_tank
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.MechAssemblyVisuals.State"
+          data: 4
+
+      - tool: Anchoring
+        doAfter: 3
+
+      - component: PowerCell
+        name: power cell
+        store: battery-container
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: small
+
+      - tool: Screwing
+        doAfter: 3
+
+      - material: Steel
+        amount: 5
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.MechAssemblyVisuals.State"
+          data: 5
+
+      - material: Plasteel
+        amount: 10
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.MechAssemblyVisuals.State"
+          data: 6
+
+      - tool: Anchoring
+        doAfter: 2
+      
+      - material: ReinforcedGlass
+        amount: 10
+        completed:
+        - !type:VisualizerDataInt
+          key: "enum.MechAssemblyVisuals.State"
+          data: 7
+
+      - tool: Welding
+        doAfter: 3
+
+  - node: Nes14Pod
+    actions:
+    - !type:BuildMech
+      mechPrototype: Nes14Pod

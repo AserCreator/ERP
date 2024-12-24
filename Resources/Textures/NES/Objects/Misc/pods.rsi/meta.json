@@ -1,0 +1,57 @@
+{
+  "copyright" : "NES-station",
+  "license" : "CC-BY-SA-3.0",
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "pod"
+      },
+      {
+        "name": "frame"
+      },
+      {
+        "name": "pod-broken"
+      },
+      {
+        "name": "pod-open"
+      },
+      {
+        "name": "pod-moving",
+        "delays": [
+          [
+            0.15,
+            0.15,
+            0.15
+          ]
+        ]
+      },
+      {
+        "name": "frame0"
+      },
+      {
+        "name": "frame1"
+      },
+      {
+        "name": "frame2"
+      },
+      {
+        "name": "frame3"
+      },
+      {
+        "name": "frame4"
+      },
+      {
+        "name": "frame5"
+      },
+      {
+        "name": "frame6"
+      },
+      {
+        "name": "frame7"
+      }
+  ]
+}

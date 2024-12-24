@@ -439,7 +439,7 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 30
+        Blunt: 15
         Structural: 35
   - type: Ammo
     muzzleFlash: HitscanEffect

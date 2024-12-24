@@ -574,6 +574,7 @@
       - DurandPeripheralsElectronics
       - DurandTargetingElectronics
       - ClarkeCentralElectronics
+      - Nes14PodCentralElectronics
       - ClarkePeripheralsElectronics
       - HamtrCentralElectronics
       - HamtrPeripheralsElectronics
@@ -711,6 +712,7 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    - Nes14PodHarness
     - ClarkeHarness
     - ClarkeHead
     - ClarkeLArm

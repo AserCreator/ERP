@@ -1,0 +1,17 @@
+- type: latheCategory
+  id: Pods
+  name: ПОДы
+
+- type: latheRecipe
+  id: Nes14PodHarness
+  result: Nes14PodHarness
+  category: Pods
+  completetime: 10
+  materials:
+    Steel: 2500
+    Glass: 500
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: Nes14PodCentralElectronics
+  result: Nes14PodCentralElectronics

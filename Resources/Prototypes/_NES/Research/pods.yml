@@ -1,0 +1,14 @@
+- type: technology
+  id: Nes14Pods
+  name: ПОДы
+  icon:
+    sprite: NES/Objects/Misc/pods.rsi
+    state: pod
+  discipline: Industrial
+  tier: 2
+  cost: 8000
+  recipeUnlocks:
+  - Nes14PodHarness
+  - Nes14PodCentralElectronics
+  technologyPrerequisites:
+  - Shuttlecraft

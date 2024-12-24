@@ -1,0 +1,50 @@
+- type: entity
+  id: Nes14BasePodPart
+  parent: BaseMechPart
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Items
+    noRot: false
+    sprite: Objects/Specific/Mech/ripleymkii_construction.rsi
+
+- type: entity
+  parent: Nes14BasePodPart
+  id: Nes14PodHarness
+  name: каркас ПОДа
+  description: The core of the Ripley MK-II.
+  components:
+  - type: ContainerContainer
+    containers:
+      mech-assembly-container: !type:Container
+  - type: MechAssembly
+    finishedPrototype: Nes14PodChassis
+    requiredParts:
+      MechThruster: false
+  - type: Sprite
+    sprite: NES/Objects/Misc/pods.rsi
+    state: frame
+    noRot: true
+    scale: 1.3, 1.3
+
+- type: entity
+  id: Nes14PodChassis
+  parent: Nes14BasePodPart
+  name: шасси ПОДа
+  description: An in-progress construction of the Ripley MK-II mech.
+  components:
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      battery-container: !type:Container
+  - type: MechAssemblyVisuals
+    statePrefix: frame
+  - type: Sprite
+    sprite: NES/Objects/Misc/pods.rsi
+    noRot: true
+    state: frame0
+    scale: 1.3, 1.3
+  - type: Construction
+    graph: Nes14Pod
+    node: start
+    defaultTarget: Nes14Pod

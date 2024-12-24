@@ -18,25 +18,6 @@
       "name": "august-broken"
     },
     {
-        "name": "pod"
-      },
-      {
-        "name": "pod-broken"
-      },
-      {
-        "name": "pod-open"
-      },
-      {
-        "name": "pod-moving",
-        "delays": [
-          [
-            0.15,
-            0.15,
-            0.15
-          ]
-        ]
-      },
-    {
       "name": "reticence",
       "directions": 4
     },

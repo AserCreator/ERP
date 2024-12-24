@@ -204,6 +204,8 @@
   technologyPrerequisites:
   - RipleyAPLU
 
+# Tier 3
+
 - type: technology
   id: Clarke
   name: research-technology-clarke
@@ -211,7 +213,7 @@
     sprite: Objects/Specific/Mech/mecha.rsi
     state: clarke
   discipline: Industrial
-  tier: 2
+  tier: 3
   cost: 10000
   recipeUnlocks:
   - ClarkeHarness
@@ -223,8 +225,6 @@
   - ClarkePeripheralsElectronics
   technologyPrerequisites:
   - Ripley2
-
-# Tier 3
 
 - type: technology
   id: BluespaceStorage
